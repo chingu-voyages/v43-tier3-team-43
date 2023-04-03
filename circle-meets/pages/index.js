@@ -25,13 +25,10 @@ export default function Home() {
         <header className='bg-communixWhite p-8 inline-block' >
           <h1 className='text-7xl font-dm'><span className='text-communixPurple'>Com</span><span className='text-communixGreen'>mu</span><span className='text-communixRed'>nix</span></h1>
         </header>
+        <Login />
+      <Register />
       </main>
-      <DndContext onDragEnd={handleDragEnd}>
-        {!parent ? draggable : null}
-        <Dropzone id="droppable">
-          {parent === "droppable" ? draggable : 'Drop here'}
-        </Dropzone>
-      </DndContext>
+      
     </div>
   );
 
