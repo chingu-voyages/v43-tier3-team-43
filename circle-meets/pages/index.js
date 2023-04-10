@@ -2,6 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Login from "./components/login-btn";
+import RegisterButton from './components/register-button'
 
 export default function Home() {
   const [parent, setParent] = useState(null);
