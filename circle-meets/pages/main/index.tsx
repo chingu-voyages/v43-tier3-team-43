@@ -1,6 +1,10 @@
 import React from "react";
 import FriendCard from "../components/FriendCard";
 import Header from "../components/Header";
+import { PrismaClient } from "@prisma/client"
+
+import { useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 // TODO: Replace with db friends
 const friends = [
@@ -42,7 +46,14 @@ const friends = [
   },
 ];
 
+const prisma = new PrismaClient()
+
 function Main() {
+  const router = useRouter();
+  const { data: session } = useSession();
+
+  if (!session) router.push("/")
+
   return (
     <div className="flex flex-col flex-wrap min-h-screen bg-communixWhite font-dm white-grid">
       <>
@@ -58,3 +69,17 @@ function Main() {
 }
 
 export default Main;
+
+export async function getStaticProps(email) {
+  const users = await prisma.conversation.findMany({
+    where: {
+      userId: {
+        email: email
+      }
+    }
+  })
+  return {
+      props: { users: users}
+  }
+}
+

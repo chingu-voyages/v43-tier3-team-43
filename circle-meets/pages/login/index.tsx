@@ -1,3 +1,4 @@
+import React from 'react'
 
 const Login = () => {
   return (
@@ -13,7 +14,4 @@ const Login = () => {
 };
 
 
-const login = (username: string, password: string) => {
-
-}
 export default Login;
