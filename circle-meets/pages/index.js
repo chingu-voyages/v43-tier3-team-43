@@ -2,7 +2,7 @@ import Head from "next/head";
 import { useRouter } from "next/router";
 import { useState } from "react";
 import Login from "./components/login-btn";
-import RegisterButton from './components/register-button'
+import Register from './components/Register'
 
 export default function Home() {
   const [parent, setParent] = useState(null);
@@ -43,13 +43,11 @@ export default function Home() {
             A video or text chat. Sign in using Github.
           </p>
         </header>
-        <h1 className="text-cyan text-4xl m-10">Lets join a room!</h1>
-        <input onChange={(e) => setRoomName(e.target.value)} />
-        <button type="button" onClick={joinRoom}>
-          Join Room
-        </button>
+      
+      <Register />
       </main>
-      <footer className=" mt-auto bg-lightpurple">
+      
+<footer className=" mt-auto bg-lightpurple">
         <div className="w-full mx-auto container md:p-6 p-4 md:flex md:items-center md:justify-between">
           <span
             className="text-opacity-25 sm:text-cen
@@ -62,8 +60,7 @@ export default function Home() {
             © 2023 Communix is copyright 2023
           </span>
         </div>
-      </footer>
-    </div>
+      </footer>    </div>
   );
 
   function handleDragEnd({ over }) {

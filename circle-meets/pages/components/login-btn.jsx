@@ -12,7 +12,7 @@ export default function Login() {
         createUser(session.user.name, session.user.email)
         setRegistered(true)
         //
-        redirect('/')
+        //redirect('/')
       }
     }
   }, [session])
